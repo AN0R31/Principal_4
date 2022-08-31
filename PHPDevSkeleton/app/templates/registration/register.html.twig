@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/stylesheets/auth/register.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+
+
+    <h1>HULA!</h1>
+    <h2>MAKE APPOINTMENTS EASIER 👣</h2>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" method="post">
+                    {% for flash_error in app.flashes('verify_email_error') %}
+                        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                    {% endfor %}
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="text" class="login__input" placeholder="User name" name="userName">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="text" class="login__input" placeholder="First name" name="firstName">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="text" class="login__input" placeholder="Last name" name="lastName">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" class="login__input" placeholder="Password" name="password">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" class="login__input" placeholder="Repeat Password" name="passwordCopy">
+                    </div>
+                    <button class="button login__submit">
+                        <span class="button__text">Sign Up Now!</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>
+                    <h5>Already have an account? <a href="index.php">Log in NOW!</a></h5>
+                </form>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <h1>Register</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

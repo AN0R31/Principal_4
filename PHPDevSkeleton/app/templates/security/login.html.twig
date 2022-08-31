@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/stylesheets/auth/login.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>HULA!</h1>
+    <h2>MAKE APPOINTMENTS EASIER 👣</h2>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" method="post">
+                    {% if error %}
+                        <div class="errorMessage">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="login__input" autocomplete="email" placeholder="E-Mail" required autofocus>
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" name="password" id="inputPassword" class="login__input" placeholder="Password" autocomplete="current-password" required>
+                    </div>
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+                    <button class="button login__submit">
+                        <span class="button__text">Log In Now!</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>
+                    <h5>Don't have an account? <a href="signup.php" >Get one NOW!</a></h5>
+                </form>
+                <div class="social-login">
+                    <h3>HULA!</h3>
+                    <h4>Appointment</h4>
+                    <h4>Manager</h4>
+                </div>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+{#OLD FORM#}
+
+{#<form method="post">#}
+
+{#    {% if app.user %}#}
+{#        <div class="mb-3">#}
+{#            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>#}
+{#        </div>#}
+{#    {% endif %}#}
+
+{#    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>#}
+{#    <label for="inputEmail">Email</label>#}
+{#    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>#}
+{#    <label for="inputPassword">Password</label>#}
+{#    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>#}
+
+{#    <input type="hidden" name="_csrf_token"#}
+{#           value="{{ csrf_token('authenticate') }}"#}
+{#    >#}
+
+{#    #}{##}
+{#        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.#}
+{#        See https://symfony.com/doc/current/security/remember_me.html#}
+
+{#        <div class="checkbox mb-3">#}
+{#            <label>#}
+{#                <input type="checkbox" name="_remember_me"> Remember me#}
+{#            </label>#}
+{#        </div>#}
+{#    #}
+
+{#    <button class="btn btn-lg btn-primary" type="submit">#}
+{#        Sign in#}
+{#    </button>#}
+{#</form>#}
+{% endblock %}

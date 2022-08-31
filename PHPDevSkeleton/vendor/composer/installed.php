@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => '__root__',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '64d4086ddbf3684e5ddea78c99493a1e8a9e5677',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '64d4086ddbf3684e5ddea78c99493a1e8a9e5677',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/asset' => array(
+            'pretty_version' => 'v6.1.0',
+            'version' => '6.1.0.0',
+            'reference' => 'dc6f572f142627d42ba88a42ea34f79d3776ee6c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/asset',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'vlucas/valitron' => array(
+            'pretty_version' => 'v1.4.10',
+            'version' => '1.4.10.0',
+            'reference' => '5ebd5d7af82cc0a9d798e816a2ecad63f1b59ceb',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../vlucas/valitron',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

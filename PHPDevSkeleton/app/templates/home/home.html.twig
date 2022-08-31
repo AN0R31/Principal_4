@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome Home!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/stylesheets/home/calendar.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+    <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/calendarFiller.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/headerFiller.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('assets/scripts/home/homeController.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+    <div class="realTimeHeader" id="realTimeHeader">Current date and time</div>
+
+    <div class="inline-headers">
+        <h1 id="monthHeader">Month Year</h1>
+        <h2 id="scheduleText">Here's a list of employees</h2>
+    </div>
+
+    <div>
+        <label for="months" class="monthLabel">Choose a month: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <select name="months" id="months" class="months">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+
+        <label for="years" class="monthLabel" style="padding-left: 3.5vw;">Choose a year:</label>
+        <select name="years" id="years" class="years">
+            <option value="0" class="year" data-date="2020">2020</option>
+            <option value="1" class="year" data-date="2021">2021</option>
+            <option value="2" class="year" data-date="2022">2022</option>
+            <option value="3" class="year" data-date="2023">2023</option>
+            <option value="4" class="year" data-date="2024">2024</option>
+        </select>
+
+
+    </div>
+    <br/>
+
+    <div>
+        <label for="locations" class="locationSelector">Choose a location:&nbsp;&nbsp;&nbsp;</label>
+        <select name="locations" id="locations" class="months">
+        </select>
+    </div>
+
+    <div id="makeAppointmentButton" class="makeAppointmentButton" onclick="">Make an appointment</div>
+
+
+
+
+    <div class="inline-calendar">
+        <table id="calendar" style="margin-top: 15px">
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+            <tr class="calendarRow tr-filled">
+                <td class="calendarBox td-weekend"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox td-weekend"></td>
+            </tr>
+            <tr class="calendarRow tr-white">
+                <td class="calendarBox td-weekend"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox td-weekend"></td>
+            </tr>
+            <tr class="calendarRow tr-filled">
+                <td class="calendarBox td-weekend"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox td-weekend"></td>
+            </tr>
+            <tr class="calendarRow tr-white">
+                <td class="calendarBox td-weekend"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox td-weekend"></td>
+            </tr>
+            <tr class="calendarRow tr-filled">
+                <td class="calendarBox td-weekend"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox td-weekend"></td>
+            </tr>
+            <tr class="calendarRow tr-white">
+                <td class="calendarBox td-weekend"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox"></td>
+                <td class="calendarBox td-weekend"></td>
+            </tr>
+        </table>
+        <ul class="profiles-ul" id="profiles-ul">
+            <p id="emptyParagraphUsers" class="emptyParagraphUsers">Hey! It's a free day :)</p>
+        </ul>
+    </div>
+
+
+    <form method="GET" id="selectedDateForm" style="visibility: hidden">
+        <input type="text" id="selectedDateField" name="selectedDate">
+        <input type="text" id="selectedLocationField" name="locationId">
+        <input type="submit" value="submit" id="selectedDateSubmit">
+    </form>
+
+{% endblock %}

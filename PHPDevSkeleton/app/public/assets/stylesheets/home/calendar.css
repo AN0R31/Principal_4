@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    background-color: seashell;
+}
+
+table {
+    padding-top: 20px;
+    border: 0px;
+    width: 55vw;
+    height: 20vw;
+    table-layout: fixed;
+    text-align: center;
+    font-size: 25px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 35px;
+
+}
+
+.inline-headers {
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw 5vw 0vw 5vw;
+}
+
+.inline-calendar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vw 5vw;
+}
+
+.tr-filled {
+    background-color: azure;
+}
+
+.tr-white {
+    background-color: white;
+}
+
+.tr-empty {
+    background-color: cornsilk;
+}
+
+.td-weekend {
+    background-color: aliceblue;
+}
+
+.td-empty {
+    background-color: white;
+}
+
+td, th {
+    padding: 15px;
+    font-size: 20px;
+    width: 100px;
+    overflow: hidden;
+}
+
+th {
+    background-color: dodgerblue;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.profiles-ul {
+    margin-top: -55px;
+}
+
+.userProfile {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.image-logo {
+    width: 100px;
+    border: 3px solid black;
+    border-radius: 80px;
+}
+
+li {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.p-username {
+    padding-left: 2vw;
+}
+
+.emptyParagraphUsers {
+    font-size: 35px;
+    padding-right: 4vw;
+}
+
+.active {
+    background-color: dodgerblue !important;
+}
+
+.grayedOut {
+    background-color: ghostwhite !important;
+}
+
+.calendarBox {
+}
+
+.calendarRow {
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+select {
+    width: 100px;
+    text-overflow: ellipsis;
+}
+
+.realTimeHeader {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(to top, rgba(255, 245, 238, 1) 0%, rgba(30, 144, 255, 1) 100%);
+    text-align: center;
+    font-size: 40px;
+    -webkit-text-stroke: 3px #2a2a2a;
+}
+
+.monthLabel {
+    display: inline-flex;
+    justify-content: flex-start;
+    padding-left: 5vw;
+    padding-bottom: 20px;
+}
+
+select {
+    width: auto;
+}
+
+select:hover {
+    cursor: grab;
+}
+
+.locationSelector {
+    padding-left: 5vw;
+}
+
+.makeAppointmentButton {
+    position: absolute;
+    /*border: 1px solid #424242;*/
+    font-weight: bolder;
+    font-size: 25px;
+    background-color: rgba(30, 144, 255, 0.92);
+    border-radius: 2px;
+    margin-left: 45.5vw;
+    margin-top: -75px;
+    padding: 7px 14px;
+    display: inline-flex;
+    justify-content: flex-start;
+}
+
+.makeAppointmentButton:hover {
+    background-color: #0b89ff;
+    cursor: grab;
+}
+
+.locationAndUser {
+    display: inline-flex;
+    margin-left: 29vw;
+    margin-top: -100px;
+}
+
+select {
+    font-size: 20px;
+    border: none;
+    background-color: seashell;
+}
+
+label {
+    font-size: 25px;
+}
+
+.loggedInText {
+    position: absolute;
+    z-index: 1;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.logoutButton a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    font-size: 25px;
+    margin-left: 92vw;
+    padding: 10px 20px;
+}
+
+.logoutButton:hover a {
+    cursor: grab;
+}

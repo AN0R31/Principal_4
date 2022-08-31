@@ -19,9 +19,9 @@ services:
         image: mariadb:latest
         environment:
             MYSQL_ROOT_PASSWORD: 'secret'
-            MYSQL_USER: 'tutorial'
+            MYSQL_USER: 'root'
             MYSQL_PASSWORD: 'secret'
-            MYSQL_DATABASE: 'tutorial'
+            MYSQL_DATABASE: 'hula_application'
         volumes:
             - mysqldata:/var/lib/mysql
         ports:
@@ -34,7 +34,7 @@ services:
         environment:
           - PMA_HOST=mysql
           - PMA_PORT=3306
-          - PMA_USER=tutorial
+          - PMA_USER=root
           - PMA_PASSWORD=secret
 volumes:
     mysqldata: {}
