@@ -2,5 +2,8 @@
 
 let date = moment()
 
-calendarFiller(date)
+axiosSendPostRequestToGetAppointments(fetchGivenDateAsReadyToSendFormat(date), 1)
+setSelectors(date)
 headerFiller(date)
+realTimeHeaderRefresherFiller()
+calendarFiller(date)
