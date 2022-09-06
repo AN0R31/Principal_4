@@ -35,6 +35,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 125)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $profile_picture = null;
+
+    #[ORM\Column]
+    private ?int $calendar_style = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -125,6 +131,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getProfilePicture(): ?string
+    {
+        return $this->profile_picture;
+    }
+
+    public function setProfilePicture(string $profile_picture): self
+    {
+        $this->profile_picture = $profile_picture;
+
+        return $this;
+    }
+
+    public function getCalendarStyle(): ?int
+    {
+        return $this->calendar_style;
+    }
+
+    public function setCalendarStyle(int $calendar_style): self
+    {
+        $this->calendar_style = $calendar_style;
 
         return $this;
     }

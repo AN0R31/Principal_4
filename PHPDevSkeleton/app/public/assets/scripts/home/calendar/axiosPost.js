@@ -4,12 +4,12 @@ function axiosSendPostRequestToSetAppointment(date, location) {
     const data = new FormData()
     data.set('date', date)
     data.set('location_id', location)
-    // data.set('_token', document.querySelector('meta[name=csrfToken]').content);
     axios.post(
         '/setAppointment',
         data,
     ).then(function (response) {
-        return response.data
+        handleJsonStringResponse(response.data)
+        axiosSendPostRequestToGetAppointments(date, location)
     });
 }
 
@@ -17,11 +17,26 @@ function axiosSendPostRequestToGetAppointments(date, location) {
     const data = new FormData()
     data.set('date', date)
     data.set('location_id', location)
-    // data.set('_token', document.querySelector('meta[name=csrfToken]').content);
     axios.post(
         '/getAppointments',
         data,
     ).then(function (response) {
-        return response.data
+        appointmentHandler(response.data, date, location)
+    });
+}
+
+function axiosSendPostRequestToDeleteAppointments(id, date, location) {
+    const data = new FormData()
+    data.set('id', id)
+    axios.post(
+        '/deleteAppointment',
+        data,
+    ).then(function (response) {
+        if (response.data.status === 'null') {
+            axiosSendPostRequestToGetAppointments(date, location)
+            customAlertSuccess('Appointment deleted successfully!')
+        } else {
+            customAlertError(response.data)
+        }
     });
 }

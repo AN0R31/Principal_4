@@ -2,8 +2,10 @@
 
 let date = moment()
 
-axiosSendPostRequestToGetAppointments(fetchGivenDateAsReadyToSendFormat(date), 1)
+let calendar_style = document.getElementById('calendar_style').innerHTML
+
 setSelectors(date)
 headerFiller(date)
 realTimeHeaderRefresherFiller()
-calendarFiller(date)
+calendarFiller(date, calendar_style)
+setEventListeners()

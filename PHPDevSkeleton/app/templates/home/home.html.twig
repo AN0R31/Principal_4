@@ -7,19 +7,26 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/customAlerts.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/appointmentHandler.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/helpers.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/axiosPost.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/headerFiller.js') }}" defer></script>
-    <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/setSelectors.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/setSelectorsAndListeners.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/calendarRefresher.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('assets/scripts/home/calendar/calendarFiller.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('assets/scripts/home/homeController.js') }}" defer></script>
 {% endblock %}
 
 {% block body %}
+    <div style="display: none" id="calendar_style">{{ calendar_style }}</div>
+
+    <div class="loggedInText">Hey, {{ name }}</div>
+    <a href="/logout"><div class="logoutButton">LOGOUT</div></a>
+
     <div class="realTimeHeader" id="realTimeHeader">Current date and time</div>
 
     <div class="inline-headers">
@@ -58,6 +65,9 @@
     <div>
         <label for="locations" class="locationSelector">Choose a location:&nbsp;&nbsp;&nbsp;</label>
         <select name="locations" id="locations" class="months">
+        {% for location in locations %}
+            <option value="{{ location.id }}">{{ location.city }}</option>
+        {% endfor %}
         </select>
     </div>
 
@@ -76,6 +86,13 @@
                 <th>Thu</th>
                 <th>Fri</th>
                 <th>Sat</th>
+{#                <th></th>#}
+{#                <th></th>#}
+{#                <th></th>#}
+{#                <th></th>#}
+{#                <th></th>#}
+{#                <th></th>#}
+{#                <th></th>#}
             </tr>
             <tr class="calendarRow tr-filled">
                 <td class="calendarBox td-weekend"></td>
@@ -133,15 +150,7 @@
             </tr>
         </table>
         <ul class="profiles-ul" id="profiles-ul">
-            <p id="emptyParagraphUsers" class="emptyParagraphUsers">Hey! It's a free day :)</p>
         </ul>
     </div>
-
-
-    <form method="GET" id="selectedDateForm" style="visibility: hidden">
-        <input type="text" id="selectedDateField" name="selectedDate">
-        <input type="text" id="selectedLocationField" name="locationId">
-        <input type="submit" value="submit" id="selectedDateSubmit">
-    </form>
 
 {% endblock %}

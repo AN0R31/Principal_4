@@ -17,10 +17,15 @@ class Appointment
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
+    #[ORM\Column]
+    private ?int $user_id = null;
 
-    #[ORM\ManyToOne(targetEntity: \App\Entity\User::class, inversedBy: 'appointment')]
+    #[ORM\Column]
+    private ?int $location_id = null;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'appointment')]
     #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id', nullable: false)]
-    private ?User $user = null;
+    protected User $user;
 
     #[ORM\ManyToOne(targetEntity: Location::class, inversedBy: 'appointment')]
     #[ORM\JoinColumn(name: 'location_id', referencedColumnName: 'id', nullable: false)]
@@ -58,18 +63,42 @@ class Appointment
         $this->date = $date;
     }
 
+    public function getUserId(): ?int
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(int $user_id): self
+    {
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    public function getLocationId(): ?int
+    {
+        return $this->location_id;
+    }
+
+    public function setLocationId(int $location_id): self
+    {
+        $this->location_id = $location_id;
+
+        return $this;
+    }
+
     /**
-     * @return User|null
+     * @return User
      */
-    public function getUser(): ?User
+    public function getUser(): User
     {
         return $this->user;
     }
 
     /**
-     * @param User|null $user
+     * @param User $user
      */
-    public function setUser(?User $user): void
+    public function setUser(User $user): void
     {
         $this->user = $user;
     }

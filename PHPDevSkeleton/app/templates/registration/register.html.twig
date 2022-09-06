@@ -34,6 +34,14 @@
                         <i class="login__icon fas fa-user"></i>
                         {{ form_widget(registrationForm.plainPasswordConfirm, {'attr': {'class': 'login__input', 'placeholder': 'Confirm Password'}}) }}
                     </div>
+                    <div class="login__field" style="display: none">
+                        <i class="login__icon fas fa-user"></i>
+                        {{ form_widget(registrationForm.profile_picture, {'attr': {'value': 'assets/img/profilePicture0.png'}}) }}
+                    </div>
+                    <div class="login__field" style="display: none">
+                        <i class="login__icon fas fa-user"></i>
+                        {{ form_widget(registrationForm.calendar_style, {'attr': {'value': 0}}) }}
+                    </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
                         <label for="registration_form_agreeTerm" class="login__label__text">I accept the <u>terms</u></label>
